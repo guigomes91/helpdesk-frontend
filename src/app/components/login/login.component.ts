@@ -27,7 +27,8 @@ export class LoginComponent {
   }
 
   logar() {
-    this.toast.error('Usuário e/ou senha inválidos!', 'Login');
-    this.creds.senha = '';
+    this.service.authenticate(this.creds).subscribe(resposta => {
+      this.toast.info(resposta.headers.get('Authorization'))
+    })
   }
 }
