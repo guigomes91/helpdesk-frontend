@@ -15,4 +15,8 @@ export class TecnicoService {
   findAll(): Observable<Tecnico[]> {
     return this.http.get<Tecnico[]>(this.API);
   }
+
+  create(tecnico: Tecnico): Observable<Tecnico> {
+    return this.http.post<Tecnico>(this.API, tecnico);
+  }
 }
