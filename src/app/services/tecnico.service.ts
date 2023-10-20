@@ -12,11 +12,19 @@ export class TecnicoService {
 
   constructor(private http: HttpClient) { }
 
+  findById(id: any): Observable<Tecnico> {
+    return this.http.get<Tecnico>(`${this.API}/${id}`);
+  }
+
   findAll(): Observable<Tecnico[]> {
     return this.http.get<Tecnico[]>(this.API);
   }
 
   create(tecnico: Tecnico): Observable<Tecnico> {
     return this.http.post<Tecnico>(this.API, tecnico);
+  }
+
+  update(tecnico: Tecnico): Observable<Tecnico> {
+    return this.http.put<Tecnico>(`${this.API}/${tecnico.id}`, tecnico);
   }
 }
