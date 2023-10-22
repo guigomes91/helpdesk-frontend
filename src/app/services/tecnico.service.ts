@@ -27,4 +27,8 @@ export class TecnicoService {
   update(tecnico: Tecnico): Observable<Tecnico> {
     return this.http.put<Tecnico>(`${this.API}/${tecnico.id}`, tecnico);
   }
+
+  delete(id: any): Observable<Tecnico> {
+    return this.http.delete<Tecnico>(`${this.API}/${id}`);
+  }
 }
